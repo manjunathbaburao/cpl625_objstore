@@ -1,0 +1,40 @@
+extends layout
+block content
+   script(src='/javascripts/jquery-3.2.1.js')
+   script.
+    $(document).ready(function () {
+      $("input#radio[type='radio']").on("change", function(){
+        var photoname= $(this).parent().next('td').text();
+        $("input#selection").attr('value', photoname);
+        $("#ViewForm").submit();
+      });
+    });
+   .form_wrapper
+      form#ViewForm(method='post', action='/view')
+         fieldset
+           legend Image List
+           h2 List of Objects in Bucket
+             table#objectList
+               thead
+                 tr
+                   td
+                   td Name
+                   td Size
+                   td ETag
+               tbody
+                 - each obj in objects
+                   tr
+                     td
+                       input#radio(type='radio', name='radioselect')
+                     td #{obj.Key}
+                     td #{obj.Size}
+                     td #{obj.ETag}
+           .contactForm_tr
+            .contactForm_td1 Your selection:
+            .contactForm_tdMiddle : 
+            .contactForm_td2
+             input#selection(type='text', name='selection', readOnly = 'true', value='')
+            .contactForm_td1
+            .contactForm_tdMiddle : 
+            .contactForm_td2
+             a#homelink(href="/") Home

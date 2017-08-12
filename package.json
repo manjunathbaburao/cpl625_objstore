@@ -1,0 +1,24 @@
+{
+  "name": "ObjStore",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+	  "express": "*",
+	  "jade": "*",
+	  "serve-favicon": "*",
+	  "serve-static": "*",
+	  "body-parser": "*",
+	  "morgan": "*",
+	  "errorhandler": "*",
+	  "method-override": "*",
+	  "pg": "*",
+	  "http": "*",
+	  "cfenv": "*",
+	  "multer": "*",
+	  "multer-s3": "*",
+	  "aws-sdk": "*"
+  }
+}

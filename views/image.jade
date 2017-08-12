@@ -1,0 +1,14 @@
+extends layout
+block content
+   .form_wrapper
+      form#ViewForm
+         fieldset
+           .contactForm_tr
+            .contactForm_td1 See your photo:
+            .contactForm_tdMiddle : 
+            .contactForm_td2
+             img#seePhoto(src= photo, alt='MyPhoto', style='width:304px;height:228px;')
+            .contactForm_td1
+            .contactForm_tdMiddle : 
+            .contactForm_td2
+             a#homelink(href="/") Home

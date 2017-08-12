@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  script(src='/javascripts/jquery-3.2.1.js')
+  script.
+    $(document).ready(function () {
+     $("input[type='radio']").on("change", function(){
+     	var radioValue = $("input[name='opselect']:checked").val();
+     	if (radioValue == 'Upload Image') {
+     		$("input[name='imageName']").attr("disabled", false);
+     		$("input[type='submit']").attr("disabled", false);
+     	}
+     	if (radioValue == 'View Images') {
+     	    $("#DownloadForm").submit();
+     	}
+      });
+    });
+  .contactPage_title(text-align='center')
+   h3 Welcome! What would you like to do??
+   input#radio(type='radio', name='opselect', value='Upload Image')
+   |  Upload Image
+   br
+   input#radio(type='radio', name='opselect', value='View Images')
+   |  View Image
+   br
+   .form_wrapper
+      form#UploadForm(method='post', action='/upload', enctype="multipart/form-data")
+        fieldset
+          legend Image Upload
+          .contactForm_tr
+            .contactForm_td1 Select photo:*
+            .contactForm_tdMiddle : 
+            .contactForm_td2
+              input(name='imageName', multiple, type='file', disabled = 'true')
+            .form-button(style='margin-left: 100px; margin-right: 10px;')
+              input(type="submit", value="Upload Image", disabled = 'true')
+       p #{message}
+     .form_wrapper
+       form#DownloadForm(method='post', action='/show')

@@ -1,0 +1,10 @@
+---
+applications:
+- name: objstore-app
+  memory: 256M
+  instances: 1
+  random-route: true
+  command: node app.js
+  buildpack: nodejs_buildpack
+  services:
+  - techedbucket
