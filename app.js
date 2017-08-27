@@ -56,7 +56,7 @@ if ('development' == app.get('env')) {
 var s3 = new aws.S3({
 		apiVersion: "2006-03-01",
 		endpoint: endpoint,
-		region: 'eu-central-1',
+		region: '<enter region here>',
 		signatureVersion: 'v4',
 		credentials: {
 			accessKeyId: accesskey,
